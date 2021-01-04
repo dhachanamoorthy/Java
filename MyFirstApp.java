@@ -9,5 +9,6 @@ public class MyFirstApp{
         a=10;
         b="moorthy";
         System.out.println("a="+a+" b="+b);
+        
    } 
 }
