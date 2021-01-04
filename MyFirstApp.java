@@ -5,10 +5,13 @@ public class MyFirstApp{
        //Declaration
         int a;
         String b;
+        double c;
         //Assignment
         a=10;
         b="moorthy";
         System.out.println("a="+a+" b="+b);
-        
+        //method calls
+        c=Math.random();
+        System.out.println("c="+c);
    } 
 }
