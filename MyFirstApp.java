@@ -15,10 +15,12 @@ public class MyFirstApp{
         System.out.println("c="+c);
         //Looping
         //1.for loop
-        for(int i=0;i<a;i++){
+        System.out.println("for loop");
+        for(int i=1;i<a;i++){
             System.out.println(i);
         }
         //2.while loop
+        System.out.println("while loop");
         while(a>0){
             System.out.println(a);
             a--;
