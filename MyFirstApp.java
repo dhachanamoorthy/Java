@@ -6,6 +6,7 @@ public class MyFirstApp{
         int a;
         String b;
         double c;
+        
         //Assignment
         a=10;
         b="moorthy";
