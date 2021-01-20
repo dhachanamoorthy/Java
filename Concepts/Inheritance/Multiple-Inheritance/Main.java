@@ -1,4 +1,4 @@
-//multi level inheritence
+//multiple   inheritence
 class College{
     String c_name="SIET";
     String code="2727";
