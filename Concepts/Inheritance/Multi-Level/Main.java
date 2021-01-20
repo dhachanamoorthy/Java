@@ -1,4 +1,4 @@
-//multi level inheritence
+//Multi Level Inheritence-Attributes and Methods of parent can be accessed by the child classes which acts as parent class for another child class 
 class College{
     String c_name="SIET";
     String code="2727";
@@ -20,6 +20,7 @@ class Student extends College{
         +"\nDepartment = "+dept);
     }
 }
+//class Exam extends student which acquire all the functionality of Student class and Parent class 
 class Exam extends Student{
     String e_name="End Semester Examination";
     String exam_code="456901";
