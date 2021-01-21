@@ -13,7 +13,9 @@ public class Main{
         al.add(3);
         al.add(4);
         al.add(5);
+
         //((parameter)->{code to be excuted});
+        
         al.forEach( (n) -> {System.out.println(n);});
     }
 }
