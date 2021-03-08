@@ -1,8 +1,6 @@
 public class Main{
     public static void main(String[] args) {
-        MysqlCon con=new MysqlCon();
-        con.connect();
-        con.close();
+        DataProcessing process=new DataProcessing();
         System.out.println("Moorthy");
         // FileProcessing fileProcessor=new FileProcessing();
         // fileProcessor.openFile();
