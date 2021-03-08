@@ -1,3 +1,4 @@
+package service;
 import java.io.*;
 import java.util.*;
 class FileProcessing {  
@@ -7,7 +8,7 @@ class FileProcessing {
     private String fileName;
     public void openFile(){
         try{
-            getFileName();
+            fileName=reader.next();
             csvFile=new File(fileName);
             readFile();
         }
@@ -19,29 +20,13 @@ class FileProcessing {
 
     public void readFile(){
         try{
-            Scanner fileContent=new Scanner(csvFile);
-            while(fileContent.hasNextLine()){
-                    System.out.println(fileContent.next());
+            Scanner content=new Scanner(csvFile);
+            while(content.hasNextLine()){
+                    System.out.println(content.next());
             }
         }
         catch(Exception e){
             System.out.println("Error in Reading File "+e);
         }
-    }
-
-    public void getFileName(){
-        do{
-            fileName=reader.next();
-        }
-        while(!validateFileName(fileName));
-    }
-
-    public boolean validateFileName(String fileName){
-        String ext[]=fileName.split(".");
-        System.out.println(fileName+" ");
-        if(ext[1].equalsIgnoreCase("csv")){
-            return true;
-        }
-        return false;
     }
 }

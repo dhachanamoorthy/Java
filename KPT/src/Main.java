@@ -3,8 +3,8 @@ public class Main{
         MysqlCon con=new MysqlCon();
         con.connect();
         con.close();
-
-        FileProcessing fileProcessor=new FileProcessing();
-        fileProcessor.openFile();
+        System.out.println("Moorthy");
+        // FileProcessing fileProcessor=new FileProcessing();
+        // fileProcessor.openFile();
     }
 }

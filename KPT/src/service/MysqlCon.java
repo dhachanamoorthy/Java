@@ -1,12 +1,14 @@
-
+package service;
 import java.sql.*;
 class MysqlCon{
+    
     String DB_URL="jdbc:mysql://localhost:3306/kpt";
     String DB_USERNAME="root";
     String DB_PASSWORD="143454";
     Connection con;
     public void connect(){
         try{
+            Class.forName("com.mysql.cj.jdbc.Driver");  
             con=DriverManager.getConnection(DB_URL,DB_USERNAME,DB_PASSWORD); 
         }
         catch(Exception e) {
