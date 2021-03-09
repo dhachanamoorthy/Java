@@ -28,7 +28,7 @@ class Payment {
         this.trayCheckInTime=trayCheckInTime;
     }
 
-    public void setTrayCheckOutTime(String trayCheckInTime){
+    public void setTrayCheckOutTime(String trayCheckOutTime){
         this.trayCheckOutTime=trayCheckOutTime;
     }
 

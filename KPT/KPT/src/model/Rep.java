@@ -1,6 +1,6 @@
 package model;
 class Rep {
-    private int repID;
+    private int repId;
     private String location;
 
     public void setRepId(int repId){

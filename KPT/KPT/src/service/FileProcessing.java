@@ -6,27 +6,15 @@ class FileProcessing {
 
     private File csvFile;
     private String fileName;
-    public void openFile(){
+    public File openFile(){
         try{
             fileName=reader.next();
             csvFile=new File(fileName);
-            readFile();
         }
         catch (Exception e) {
             System.out.println("File is not Created");
             e.printStackTrace();
         }
-    }
-
-    public void readFile(){
-        try{
-            Scanner content=new Scanner(csvFile);
-            while(content.hasNextLine()){
-                    System.out.println(content.next());
-            }
-        }
-        catch(Exception e){
-            System.out.println("Error in Reading File "+e);
-        }
+        return csvFile;
     }
 }
