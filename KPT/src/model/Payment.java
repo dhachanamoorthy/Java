@@ -1,5 +1,5 @@
 package model;
-class Payment {
+public class Payment {
     private int paymentId;
     private int surgeryId;
     private int hospitalId;

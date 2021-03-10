@@ -1,10 +1,10 @@
 package model;
-class Hospital {
-    private int hospitalId;
+public class Rep {
+    private int repId;
     private String location;
 
-    public void setHospitalId(int hospitalId){
-        this.hospitalId=hospitalId;
+    public void setRepId(int repId){
+        this.repId=repId;
     }
 
     public void setLocation(String location){
@@ -15,7 +15,7 @@ class Hospital {
         return location;
     }
 
-    public int getHospitalId(){
-        return hospitalId;
+    public int getRepID(){
+        return repId;
     }
 }

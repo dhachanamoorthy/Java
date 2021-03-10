@@ -1,18 +1,16 @@
 package model;
-class Event {
+public class Event {
     private int eventId;
     private int surgeryId;
     private String trayStatus;
-    private String eventTime;
-     
-    public void setEventID(int eventId){
+    private String eventTime;  
+    public void setEventId(int eventId){
         this.eventId=eventId;
     }
 
-    public void setSurgeryID(int surgeryId){
+    public void setSurgeryId(int surgeryId){
         this.surgeryId=surgeryId;
     }
-
     public void setTrayStatus(String trayStatus){
         this.trayStatus=trayStatus;
     }
@@ -21,11 +19,11 @@ class Event {
         this.eventTime=eventTime;
     }
 
-    public int getEventID(){
+    public int getEventId(){
         return eventId;
     }
 
-    public int getSurgeryID(){
+    public int getSurgeryId(){
         return surgeryId;
     }
 

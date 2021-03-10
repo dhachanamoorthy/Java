@@ -1,5 +1,5 @@
 package model;
-class Tray {
+public class Tray {
     private int trayId;
     private int chargesPerDay;
     private int repId;

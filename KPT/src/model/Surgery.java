@@ -1,9 +1,9 @@
 package model;
-class Surgery {
+public class Surgery {
     private int surgeryId;
     private int hospitalId;
     private int repId;
-    private int trayId;
+    private int trayId;   
     private String surgeryDate;
     public void setSurgeryId(int surgeryId){
         this.surgeryId=surgeryId;
@@ -20,16 +20,16 @@ class Surgery {
     public void setSurgeryDate(String surgeryDate){
         this.surgeryDate=surgeryDate;
     }
-    public int getSurgeryID(){
+    public int getSurgeryId(){
         return surgeryId;
     }
-    public int getHospitalID(){
+    public int getHospitalId(){
         return hospitalId;
     }
-    public int getTrayID(){
+    public int getTrayId(){
         return trayId;
     }
-    public int getRepID(){
+    public int getRepId(){
         return repId;
     }
     public String getSurgeryDate(){
