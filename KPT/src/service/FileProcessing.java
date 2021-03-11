@@ -20,6 +20,7 @@ public class FileProcessing {
             System.out.println("File is not Created");
             e.printStackTrace();
         }
+        reader.close();
         return dataList;
     }
     

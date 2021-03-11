@@ -1,18 +1,17 @@
-package service;
+package dao;
 import model.Surgery;
+import service.MysqlCon;
 import java.sql.*;
-public class SurgeryDao{
-    MysqlCon db=new MysqlCon();
-    Connection con=null;
+public class SurgeryDao extends MysqlCon{
     public void insertSurgeryData(Surgery surgery){
         try{
-            con=db.connect();
-            PreparedStatement ps=con.prepareStatement("insert into surgery(hospital_id,tray_id,surgery_date) values(?,?,?)");
+            checkInConnection();
+            PreparedStatement ps=con.prepareStatement("insert into surgery(hospital_id,surgery_date,surgery_created_date) values(?,?,?)");
             ps.setInt(1,surgery.getHospitalId());
-            ps.setInt(2,surgery.getTrayId());
-            ps.setString(3,surgery.getSurgeryDate());
+            ps.setString(2,surgery.getSurgeryDate());
+            ps.setString(3,surgery.getSurgeryCreatedDate());
             System.out.println(ps.executeUpdate()); 
-            con.close();
+            checkOutConnection();
         }
         catch(Exception e){
             System.out.println(e);
@@ -21,17 +20,16 @@ public class SurgeryDao{
     public Surgery getSurgeryData(int surgeryId){
         Surgery surgery=new Surgery();
         try{
-            con=db.connect();
-            PreparedStatement ps=con.prepareStatement("select 8 from surgery where surgery_id=?");
+            checkInConnection();
+            PreparedStatement ps=con.prepareStatement("select * from surgery where surgery_id=?");
             ps.setInt(1,surgeryId);
             ResultSet rs=ps.executeQuery();
             if(rs.next()){
                 surgery.setSurgeryId(surgeryId);
                 surgery.setHospitalId(rs.getInt("hospital_id"));
-                surgery.setTrayId(rs.getInt("tray_id"));
                 surgery.setSurgeryDate(rs.getString("surgery_date"));
             }
-            con.close();
+            checkOutConnection();
             
             
         }
