@@ -9,7 +9,8 @@ public class FileProcessing {
     public ArrayList<String> readFile(){
         ArrayList<String> dataList=new ArrayList<String>();
         try{
-            csvFile=new File("surgery.csv");
+            String path=getFilePath();
+            csvFile=new File(path);
             Scanner myReader = new Scanner(csvFile);
             while (myReader.hasNextLine()) {
                 String dataString = myReader.nextLine();
@@ -22,6 +23,10 @@ public class FileProcessing {
         }
         reader.close();
         return dataList;
+    }
+    public String getFilePath() {
+        String path=reader.next();
+        return path;    
     }
     
 }

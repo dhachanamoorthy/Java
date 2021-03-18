@@ -12,11 +12,11 @@ public class Tray {
         this.chargesPerDay=chargesPerDay;
     }
 
-    public void setRepId(int trayId){
-        this.trayId=trayId;
+    public void setRepId(int repId){
+        this.repId=repId;
     }
 
-    public int getTrayID(){
+    public int getTrayId(){
         return trayId;
     }
 
@@ -24,7 +24,7 @@ public class Tray {
         return chargesPerDay;
     }
 
-    public int getRepID(){
+    public int getRepId(){
         return repId;
     } 
 }

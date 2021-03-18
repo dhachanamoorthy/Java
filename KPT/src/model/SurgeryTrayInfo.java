@@ -15,7 +15,7 @@ public class SurgeryTrayInfo{
         return trayId;
     }
 
-    public void getSurgeryId(){
+    public int getSurgeryId(){
         return surgeryId;
     }
 }

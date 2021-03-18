@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `tray` (
    PRIMARY KEY (`tray_id`),
    FOREIGN KEY (`rep_id`) REFERENCES `rep` (`rep_id`)
 );
-ALTER TABLE tray AUTO_INCREMENT=10000;
+ALTER TABLE tray AUTO_INCREMENT=1000;
 INSERT INTO `tray`(rep_id,charges_per_day) VALUES (101,5000),
                                                   (100,3000),
                                                   (102,4000),

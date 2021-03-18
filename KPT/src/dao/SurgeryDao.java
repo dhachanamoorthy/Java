@@ -1,23 +1,31 @@
 package dao;
 import model.Surgery;
-import service.MysqlCon;
+import util.*;
 import java.sql.*;
-public class SurgeryDao extends MysqlCon{
-    public void insertSurgeryData(Surgery surgery){
+public class SurgeryDao extends MysqlCon {
+    DateFormat dateFormat=new DateFormat();
+    public void createSurgery(Surgery surgery){
+
         try{
             checkInConnection();
-            PreparedStatement ps=con.prepareStatement("insert into surgery(hospital_id,surgery_date,surgery_created_date) values(?,?,?)");
-            ps.setInt(1,surgery.getHospitalId());
-            ps.setString(2,surgery.getSurgeryDate());
-            ps.setString(3,surgery.getSurgeryCreatedDate());
-            System.out.println(ps.executeUpdate()); 
+            PreparedStatement ps=con.prepareStatement("insert into surgery(surgery_id,hospital_id,surgery_date,surgery_created_date) values(?,?,?,?)");
+            ps.setInt(1,surgery.getSurgeryId());
+            ps.setInt(2,surgery.getHospitalId());
+            ps.setDate(3,surgery.getSurgeryDate());
+            ps.setTimestamp(4,surgery.getSurgeryCreatedDate());
+            if(ps.executeUpdate()==1){
+                System.out.println("Surgery "+surgery.getSurgeryId()+" Created Successfully");
+            }
+        }
+        catch(SQLException e){
+            System.out.println("Failed to Create surgery "+e);
+        }
+        finally{
+            // doCommit();
             checkOutConnection();
         }
-        catch(Exception e){
-            System.out.println(e);
-        }
     }
-    public Surgery getSurgeryData(int surgeryId){
+    public Surgery getSurgeryDetails(int surgeryId){
         Surgery surgery=new Surgery();
         try{
             checkInConnection();
@@ -27,15 +35,19 @@ public class SurgeryDao extends MysqlCon{
             if(rs.next()){
                 surgery.setSurgeryId(surgeryId);
                 surgery.setHospitalId(rs.getInt("hospital_id"));
-                surgery.setSurgeryDate(rs.getString("surgery_date"));
+                surgery.setSurgeryDate(rs.getDate("surgery_date"));
             }
-            checkOutConnection();
-            
-            
         }
-        catch(Exception e){
-            System.out.println(e);
+        catch(SQLException e){
+            System.out.println("Failed to get surgery details "+e);
+        }
+        finally{
+            checkOutConnection();
         }
         return surgery;
+    }
+
+    public void deleteSurgery(){
+
     }
 }

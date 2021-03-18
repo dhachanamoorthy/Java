@@ -1,9 +1,12 @@
 package model;
+import java.sql.Timestamp;
 public class Event {
     private int eventId;
     private int surgeryId;
-    private String trayStatus;
-    private String eventTime;  
+    private int hospitalId;
+    private int trayId;
+    private String eventType;
+    private Timestamp eventTime;  
     public void setEventId(int eventId){
         this.eventId=eventId;
     }
@@ -11,11 +14,20 @@ public class Event {
     public void setSurgeryId(int surgeryId){
         this.surgeryId=surgeryId;
     }
-    public void setTrayStatus(String trayStatus){
-        this.trayStatus=trayStatus;
+
+    public void setHospitalId(int hospitalId){
+        this.hospitalId=hospitalId;
     }
 
-    public void setEventTime(String eventTime){
+    public void setTrayId(int trayId){
+        this.trayId=trayId;
+    }
+
+    public void setEventType(String eventType){
+        this.eventType=eventType;
+    }
+
+    public void setEventTime(Timestamp eventTime){
         this.eventTime=eventTime;
     }
 
@@ -27,11 +39,19 @@ public class Event {
         return surgeryId;
     }
 
-    public String getTrayStatus(){
-        return trayStatus;
+    public int getHospitalId(){
+        return hospitalId;
     }
 
-    public String getEventTime(){
+    public int getTrayId(){
+        return trayId;
+    }
+
+    public String getEventType(){
+        return eventType;
+    }
+
+    public Timestamp getEventTime(){
         return eventTime;
     }
 }

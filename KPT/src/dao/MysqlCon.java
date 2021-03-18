@@ -1,6 +1,6 @@
-package service;
+package dao;
 import java.sql.*;
-public class MysqlCon{
+public class MysqlCon {
     private String DB_URL="jdbc:mysql://localhost:3306/kpt";
     private String DB_USERNAME="root";
     private String DB_PASSWORD="123";

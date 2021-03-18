@@ -1,16 +1,18 @@
 package model;
+import java.sql.Timestamp;
 public class Payment {
     private int paymentId;
     private int surgeryId;
     private int hospitalId;
     private int repId;
     private int trayId;
-    private String trayCheckInTime;
-    private String trayCheckOutTime;
-    private int totalTime;
+    private int eventId;
+    private Timestamp trayCheckInTime;
+    private Timestamp trayCheckOutTime;
+    private int trayUsed;
     private int repPayout;
     private int kptCommission;
-    private String paymentTime;
+    private Timestamp paymentTime;
 
     public void setSurgeryId(int surgeryId){
         this.surgeryId=surgeryId;
@@ -24,45 +26,67 @@ public class Payment {
     public void setTrayId(int trayId){
         this.trayId=trayId;
     }
-    public void setTrayCheckInTime(String trayCheckInTime){
+
+    public void setEventId(int trayId){
+        this.eventId=eventId;
+    }
+
+    public void setTrayCheckInTime(Timestamp trayCheckInTime){
         this.trayCheckInTime=trayCheckInTime;
     }
 
-    public void setTrayCheckOutTime(String trayCheckOutTime){
+    public void setTrayCheckOutTime(Timestamp trayCheckOutTime){
         this.trayCheckOutTime=trayCheckOutTime;
     }
 
-    public void setTotalTime(int totalTime){
-        this.totalTime=totalTime;
+    public void setTrayUsage(int trayUsed){
+        this.trayUsed=trayUsed;
     }
 
-    public int getPaymentID(){
+    public void setRepPayout(int repPayout){
+        this.repPayout=repPayout;
+    }
+
+    public void setKptCommission(int kptCommission){
+        this.kptCommission=kptCommission;
+    }
+
+    public void setPaymentTime(Timestamp paymentTime){
+        this.paymentTime=paymentTime;
+    }
+
+    public int getPaymentId(){
         return paymentId;
     }
 
-    public int getSurgeryID(){
+    public int getSurgeryId(){
         return surgeryId;
     }
 
-    public int getHospitalID(){
+    public int getHospitalId(){
         return hospitalId;
     }
-    public int getTrayID(){
+    public int getTrayId(){
         return trayId;
     }
-    public int getRepID(){
+    public int getRepId(){
         return repId;
     }
-    public String getTrayCheckInTime(){
+
+    public int getEventId(){
+        return eventId;
+    }
+
+    public Timestamp getTrayCheckInTime(){
         return trayCheckInTime;
     }
 
-    public String getTrayCheckOutTime(){
+    public Timestamp getTrayCheckOutTime(){
         return trayCheckOutTime;
     }
 
-    public int getTotalTime(){
-        return totalTime;
+    public int getTrayUsage(){
+        return trayUsed;
     }
 
     public int getRepPayout(){
@@ -73,7 +97,7 @@ public class Payment {
         return kptCommission;
     }
 
-    public String getPaymentTime(){
+    public Timestamp getPaymentTime(){
         return paymentTime;
     }
 }
