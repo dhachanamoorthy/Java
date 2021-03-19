@@ -27,7 +27,7 @@ public class Payment {
         this.trayId=trayId;
     }
 
-    public void setEventId(int trayId){
+    public void setEventId(int eventId){
         this.eventId=eventId;
     }
 

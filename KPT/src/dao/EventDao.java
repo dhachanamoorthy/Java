@@ -39,6 +39,7 @@ public class EventDao extends MysqlCon{
                 event.setEventType(rs.getString("event_type"));
                 event.setEventTime(rs.getTimestamp("event_time"));
             }
+            
         }
         catch(SQLException e){
             System.out.println("Failed to get event details "+e);

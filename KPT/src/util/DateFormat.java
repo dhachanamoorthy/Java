@@ -37,4 +37,14 @@ public class DateFormat{
         Timestamp timestamp = new Timestamp(date.getTime());
         return timestamp;
     }
+
+    public int calculateDays(Timestamp checkIn,Timestamp checkOut){
+        long checkInMilliSec=checkIn.getTime();
+        long checkOutMilliSec=checkOut.getTime();
+        long milliseconds=checkOutMilliSec-checkInMilliSec;
+        long seconds=milliseconds/1000;
+        int days=(int)seconds/86400;
+        System.out.println("Timestamp ="+days);
+        return days;
+    }
 }

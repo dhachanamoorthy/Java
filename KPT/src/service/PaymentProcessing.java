@@ -8,6 +8,7 @@ public class PaymentProcessing {
     PaymentDao paymentDao=new PaymentDao();
     EventDao eventDao=new EventDao();
     TrayDao trayDao=new TrayDao();
+    DateFormat dateFormat=new DateFormat();
     SurgeryDao surgeryDao=new SurgeryDao();
     public void processPayment(Event checkOutEvent){
         int surgeryId=checkOutEvent.getSurgeryId();
@@ -31,6 +32,9 @@ public class PaymentProcessing {
         payment.setKptCommission(calculateCommission(tray.getChargesPerDay()));
         payment.setPaymentTime(new Timestamp(System.currentTimeMillis()));
         paymentDao.doPayment(payment);
+
+        //testing
+        // dateFormat.calculateDays(checkInEvent.getEventTime(),checkOutEvent.getEventTime());
     }
     public int detectCommission(int totalCharge){
         int commission=totalCharge/5;
