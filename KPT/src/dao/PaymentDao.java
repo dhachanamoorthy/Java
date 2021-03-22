@@ -29,4 +29,45 @@ public class PaymentDao extends MysqlCon{
             checkOutConnection();
         }
     }
+    public int yearlyTrayUsage(int hospital_id){
+        int traysUsed=0;
+        try{
+            checkInConnection();
+            PreparedStatement ps=con.prepareStatement("select * from payments WHERE hospital_id=? && year(payment_date) = YEAR(CURDATE());";
+            ps.setInt(1,hospital_id);
+            ResultSet rs=ps.executeQuery();
+            
+            while(rs.next()){
+                traysUsed++;
+            }
+    }
+    catch (Exception e){
+        System.out.println("Error in while getting hospital tray usage "+e);
+    }
+    finally{
+        // doCommit();
+        checkOutConnection();
+        return traysUsed;
+    }
+    
+    public int yearlyRepPayout(int rep_id){
+        int repPayout=0;
+        try{
+            checkInConnection();
+            PreparedStatement ps=con.prepareStatement("select * from payments WHERE rep_id=? && year(payment_date) = YEAR(CURDATE());";
+            ps.setInt(1,rep_id);
+            ResultSet rs=ps.executeQuery();
+            
+            while(rs.next()){
+                repPayout+=rs.getInt('rep_payout');
+            }
+    }
+    catch (Exception e){
+        System.out.println("Error in while getting yearly rep payout "+e);
+    }
+    finally{
+        // doCommit();
+        checkOutConnection();
+        return repPayout;
+    }
 }
