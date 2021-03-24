@@ -8,7 +8,12 @@ public class App {
         dataProcessing.process();
 
         Yearly yearly=new Yearly();
+        Monthly monthly=new Monthly();
         yearly.getRepPayout();
         yearly.getHospitalTrayUsage();
+        yearly.getKptCommission();
+        monthly.getRepPayout();
+        monthly.getHospitalTrayUsage();
+        monthly.getKptCommission();
     }
 }
