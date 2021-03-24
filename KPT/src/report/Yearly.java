@@ -37,4 +37,11 @@ public class Yearly{
         }); 
         file.writeToFile("Hospital Tray Usage(yearly)-",hospitalReport);
     } 
+    public void getKptCommission(){
+        ArrayList<String> commissionReport=new ArrayList<String>();
+            int kptCommission=paymentDao.yearlyKPTCommission();
+            String report="KPT Commission For Current Year = "+Integer.toString(kptCommission);
+            commissionReport.add(report);
+            file.writeToFile("KPT Commission(yearly)",commissionReport);
+    } 
 }
