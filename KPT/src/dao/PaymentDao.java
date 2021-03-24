@@ -17,16 +17,73 @@ public class PaymentDao extends MysqlCon{
             ps.setInt(9,payment.getRepPayout());
             ps.setInt(10,payment.getKptCommission());
             ps.setTimestamp(11,payment.getPaymentTime());
-            if(ps.executeUpdate()==1){
-                System.out.println("Payment of Rs."+payment.getRepPayout()+" has transfered successfully to "+payment.getRepId()+" by "+payment.getHospitalId());
-            }
+            ps.executeUpdate();
         }
         catch (Exception e){
-            System.out.println("Error in while doing payment "+e);
+           e.printStackTrace();
         }
         finally{
             // doCommit();
             checkOutConnection();
+        }
+    }
+    public int yearlyTrayUsage(int hospitalId){
+        int traysUsed=0;
+        try{
+            checkInConnection();
+            PreparedStatement ps=con.prepareStatement("select hospital_id from payment WHERE hospital_id=? && year(payment_date) = YEAR(CURDATE());");
+            ps.setInt(1,hospitalId);
+            ResultSet rs=ps.executeQuery();
+            while(rs.next()){
+                traysUsed++;
+            }
+        }
+        catch (Exception e){
+            throw e;
+        }
+        finally{
+            // doCommit();
+            checkOutConnection();
+            return traysUsed;
+        }
+    }
+    public int yearlyRepPayout(int repId){
+        int repPayout=0;
+        try{
+            checkInConnection();
+            PreparedStatement ps=con.prepareStatement("select rep_payout from payment WHERE rep_id=? && year(payment_date) = YEAR(CURDATE());");
+            ps.setInt(1,repId);
+            ResultSet rs=ps.executeQuery();
+            while(rs.next()){
+                repPayout+=rs.getInt("rep_payout");
+            }
+        }
+        catch (Exception e){
+            throw e;
+        }
+        finally{
+            // doCommit();
+            checkOutConnection();
+            return repPayout;
+        }
+    }
+    public int yearlyKPTCommission(){
+        int totalCommission=0;
+        try{
+            checkInConnection();
+            PreparedStatement ps=con.prepareStatement("select kpt_commission from payment WHERE year(payment_date) = YEAR(CURDATE());");
+            ResultSet rs=ps.executeQuery();
+            while(rs.next()){
+                totalCommission+=rs.getInt("kpt_commission");
+            }
+        }
+        catch (Exception e){
+            throw e;
+        }
+        finally{
+            // doCommit();
+            checkOutConnection();
+            return totalCommission;
         }
     }
 }

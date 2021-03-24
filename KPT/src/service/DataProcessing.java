@@ -1,13 +1,13 @@
 package service;
 import model.*;
 import dao.*;
-import util.DateFormat;
+import util.DateFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.sql.*;
 public class DataProcessing{
     FileProcessing file=new FileProcessing();
-    DateFormat dateFormat=new DateFormat();
+    DateFormatter dateFormat=new DateFormatter();
     Surgery surgery=new Surgery();
     Event event=new Event();
     SurgeryDao surgeryDao=new SurgeryDao();
@@ -16,8 +16,8 @@ public class DataProcessing{
     ArrayList<String> eventList=new ArrayList<String>(file.readFile());
     public void process(){
         getEventList(eventList);
-    }
 
+    }
     public void getEventList(ArrayList<String> events){
         events.forEach((eventString)->{
             ArrayList<String> eventDetails=splitString(eventString);

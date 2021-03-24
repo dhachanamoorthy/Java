@@ -3,7 +3,7 @@ import model.Surgery;
 import util.*;
 import java.sql.*;
 public class SurgeryDao extends MysqlCon {
-    DateFormat dateFormat=new DateFormat();
+    DateFormatter dateFormat=new DateFormatter();
     public void createSurgery(Surgery surgery){
 
         try{
@@ -13,9 +13,7 @@ public class SurgeryDao extends MysqlCon {
             ps.setInt(2,surgery.getHospitalId());
             ps.setDate(3,surgery.getSurgeryDate());
             ps.setTimestamp(4,surgery.getSurgeryCreatedDate());
-            if(ps.executeUpdate()==1){
-                System.out.println("Surgery "+surgery.getSurgeryId()+" Created Successfully");
-            }
+            ps.executeUpdate();
         }
         catch(SQLException e){
             System.out.println("Failed to Create surgery "+e);

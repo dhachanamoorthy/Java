@@ -7,15 +7,23 @@ public class Rep {
         this.repId=repId;
     }
 
+    public void setRepName(String name){
+        this.repName=repName;
+    }
+
     public void setLocation(String location){
         this.location=location;
     }
 
-    public String getLocation(){
-        return location;
-    }
-
     public int getRepID(){
         return repId;
+    }
+
+    public String getRepName(){
+        return repName;
+    }
+
+    public String getLocation(){
+        return location;
     }
 }

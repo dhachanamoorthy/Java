@@ -8,7 +8,7 @@ public class PaymentProcessing {
     PaymentDao paymentDao=new PaymentDao();
     EventDao eventDao=new EventDao();
     TrayDao trayDao=new TrayDao();
-    DateFormat dateFormat=new DateFormat();
+    DateFormatter dateFormat=new DateFormatter();
     SurgeryDao surgeryDao=new SurgeryDao();
     public void processPayment(Event checkOutEvent){
         int surgeryId=checkOutEvent.getSurgeryId();
