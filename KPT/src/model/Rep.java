@@ -1,13 +1,14 @@
 package model;
 public class Rep {
     private int repId;
+    private String repName;
     private String location;
 
     public void setRepId(int repId){
         this.repId=repId;
     }
 
-    public void setRepName(String name){
+    public void setRepName(String repName){
         this.repName=repName;
     }
 
@@ -15,7 +16,7 @@ public class Rep {
         this.location=location;
     }
 
-    public int getRepID(){
+    public int getRepId(){
         return repId;
     }
 
