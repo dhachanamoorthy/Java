@@ -36,8 +36,11 @@ public class FileProcessing {
     public void writeToFile(String reportType,ArrayList<String> report) {
         try{
 
-            String path=reportType+"-"+df.getDateTimeString()+".csv";
-            FileWriter writer = new FileWriter(path);
+            String path="reports"+File.separator+reportType+"-"+df.getDateTimeString()+".csv";
+            File file = new File(path);
+            file.getParentFile().mkdirs();
+            file.createNewFile();
+            FileWriter writer=new FileWriter(path);
             String data="";
             for(String line:report){
                 data=data+line+"\n";
