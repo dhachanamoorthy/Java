@@ -11,10 +11,7 @@ public class EventDao extends MysqlCon{
             ps.setString(3,event.getEventType());
             ps.setTimestamp(4,event.getEventTime());
             ps.setInt(5,event.getTrayId());
-            if(ps.executeUpdate()==1){
-                System.out.println("Surgery "+event.getSurgeryId()+"-"+event.getEventType()+" Event created successfully");
-                
-            }
+            ps.executeUpdate();
         }
         catch (Exception e){
             System.out.println("Error in creating event "+e);

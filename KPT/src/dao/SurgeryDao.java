@@ -5,10 +5,9 @@ import java.sql.*;
 public class SurgeryDao extends MysqlCon {
     DateFormatter dateFormat=new DateFormatter();
     public void createSurgery(Surgery surgery){
-
         try{
             checkInConnection();
-            PreparedStatement ps=con.prepareStatement("insert into surgery(surgery_id,hospital_id,surgery_date,surgery_created_date) values(?,?,?,?)");
+            PreparedStatement ps=con.prepareStatement("insert ignore into surgery(surgery_id,hospital_id,surgery_date,surgery_created_date) values(?,?,?,?);");
             ps.setInt(1,surgery.getSurgeryId());
             ps.setInt(2,surgery.getHospitalId());
             ps.setDate(3,surgery.getSurgeryDate());
@@ -19,7 +18,6 @@ public class SurgeryDao extends MysqlCon {
             System.out.println("Failed to Create surgery "+e);
         }
         finally{
-            // doCommit();
             checkOutConnection();
         }
     }

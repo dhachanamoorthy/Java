@@ -1,8 +1,9 @@
 package dao;
-import model.Tray;
+import model.Hospital;
 import java.sql.*;
+import java.util.ArrayList;
 public class HospitalDao extends MysqlCon{
-    public void getHospitals(){
+    public ArrayList<Hospital> getHospitals(){
         ArrayList<Hospital> hospitals=new ArrayList<Hospital>();
         try{
             checkInConnection();
@@ -12,7 +13,7 @@ public class HospitalDao extends MysqlCon{
                 Hospital hospital=new Hospital();
                 hospital.setHospitalId(rs.getInt("hospital_id"));
                 hospital.setHospitalName(rs.getString("hospital_name"));
-                hospital.setHospitalLocation(rs.getString("location"));
+                hospital.setLocation(rs.getString("location"));
                 hospitals.add(hospital);
             }
         }
@@ -20,7 +21,6 @@ public class HospitalDao extends MysqlCon{
             System.out.println("Error in getting Hospital details "+e);
         }
         finally{
-            // doCommit();
             checkOutConnection();
             return hospitals;
         }

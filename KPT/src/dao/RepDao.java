@@ -1,8 +1,9 @@
 package dao;
-import model.Tray;
+import model.Rep;
 import java.sql.*;
+import java.util.ArrayList;
 public class RepDao extends MysqlCon{
-    public void getReps(){
+    public ArrayList<Rep> getReps(){
         ArrayList<Rep> reps=new ArrayList<Rep>();
         try{
             checkInConnection();
@@ -11,7 +12,7 @@ public class RepDao extends MysqlCon{
             while(rs.next()){
                 Rep rep=new Rep();
                 rep.setRepId(rs.getInt("rep_id"));
-                rep.se("rep_name");
+                rep.setRepName("rep_name");
                 rep.setLocation("location");
                 reps.add(rep);
             }
